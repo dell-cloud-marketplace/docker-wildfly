@@ -51,7 +51,8 @@ To boot in standalone mode
 
 To boot in domain mode
 
-    sudo docker run -it dell/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    sudo docker run -it dell/wildfly /opt/jboss/wildfly/bin/domain.sh \
+    -b 0.0.0.0 -bmanagement 0.0.0.0
 
 ## Application deployment
 
