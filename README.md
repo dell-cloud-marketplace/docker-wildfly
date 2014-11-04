@@ -20,7 +20,21 @@ Start the container, as follows:
     sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
 
 
-Next, check the container logs, in order to get the password:
+## Test your deployment
+
+View the WildFly site
+```no-highlight
+ at: http://localhost:8080/
+```
+Or test the response via CLI:
+
+```no-highlight
+curl http://localhost:8080/
+```
+
+## Administration
+
+An admin user will be created with a random password. To get the password, check the container logs 
 
     sudo docker logs wildfly
 
@@ -34,25 +48,17 @@ You will see some output like the following:
 
     =========================================================================
 
-
-## Test your deployment
+In this case, **eiR6Raetohqu** is the password allocated to the admin user.
 
 Access the Admin interface on port 9990 and use the credentials found in the logs.
+```no-highlight
+ at: http://localhost:9990/
+```
 
 The server is run as the `jboss` user which has the uid/gid set to `1000`.
 
 WildFly is installed in the `/opt/jboss/wildfly` directory.
 
-## Advanced configuration
-
-To boot in standalone mode
-
-    sudo docker run -it dell/wildfly
-
-To boot in domain mode
-
-    sudo docker run -it dell/wildfly /opt/jboss/wildfly/bin/domain.sh \
-    -b 0.0.0.0 -bmanagement 0.0.0.0
 
 ## Application deployment
 
