@@ -69,7 +69,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-for example, using the admin credentials from the logs, the web deployment console can be accessed at:
+for example, using the admin credentials from the logs, you can access web deployment console
 
 ```no-highlight
  at: http://localhost:9990/console/App.html#deployments
