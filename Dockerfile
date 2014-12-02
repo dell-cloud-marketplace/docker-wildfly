@@ -5,7 +5,8 @@ MAINTAINER Dell Cloud Market Place <Cloud_Marketplace@dell.com>
  
 # The base image specifies user "jboss". We need to switch temporarily.
 USER root
-RUN yum -y install pwgen
+RUN yum -y install pwgen 
+RUN usermod -s /bin/bash jboss
 USER jboss
 
 # Set the WILDFLY_VERSION env variable
@@ -20,12 +21,14 @@ mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly
 # Set the JBOSS_HOME env variable
 ENV JBOSS_HOME /opt/jboss/wildfly
 
-# Expose the ports we're interested in
-EXPOSE 8080 9990
-
 # Add our custom script.
 ADD run.sh /run.sh
 
-# Make it the default command to run on boot
-CMD ["/run.sh"]
+VOLUME ["/opt/jboss/wildfly/standalone/deployments"]
 
+# Expose the ports we're interested in
+EXPOSE 8080 9990
+
+# Make it the default command to run on boot
+USER root
+CMD ["/run.sh"]
