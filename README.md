@@ -8,21 +8,31 @@ The stack comprises the following components:
 
 Name       | Version                 | Description
 -----------|-------------------------|------------------------------
-Wildfly    | 8.1 see [jboss/base](https://registry.hub.docker.com/u/jboss/base/)  | Application Server
-JDK        | 7 see [jboss/base-jdk:7](https://registry.hub.docker.com/u/jboss/base-jdk/) | Java
+Wildfly    | 8.1                     | Application Server
+JDK        | 7                       | Java
 
 
 ## Usage
 
-### Start the Container
-Start the container, as follows:
+### 1. Start the Container
 
-    sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
+A. Basic Usage
 
+Start the container with:
+
+- A named container (**wildfly**).
+- Ports 8080 AND 9990 exposed.
+
+Do
+
+```no-highlight
+sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
+```
 
 ## Test your deployment
 
 View the WildFly site
+
 ```no-highlight
  at: http://localhost:8080/
 ```
