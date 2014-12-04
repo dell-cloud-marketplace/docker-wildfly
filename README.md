@@ -14,14 +14,13 @@ JDK        | 7                       | Java
 
 ## Usage
 
-### 1. Start the Container
+### Start the Container
 
-A. Basic Usage
+To start the container with:
 
-Start the container with:
-
-- A named container (**wildfly**).
-- Ports 8080 AND 9990 exposed.
+- A named container ("wildfly").
+- Host port 8080 mapped to container port 8080 (WildFly Landing Page)
+- Host port 3306 mapped to container port 3306 (WildFly Administration Page)
 
 Do
 
@@ -31,44 +30,70 @@ sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
 
 ## Test your deployment
 
-View the WildFly site
+View the WildFly site at:
 
 ```no-highlight
- at: http://localhost:8080/
+ http://localhost:8080/
 ```
-Or test the response via CLI:
+Or test the response via the Commandline:
 
 ```no-highlight
 curl http://localhost:8080/
+```
+### Advanced Example
+
+- To start your image with a data volume for deploying applications to the WildFly Deployment Scanner
+- A predefined password for the WildFly Admin.
+
+```no-highlight
+sudo docker run -d \
+-p 8080:8080 \
+ -p 9990:9990 \
+-v /app:/opt/jboss/wildfly/standalone/deployments/ \
+-e ADMIN_PASS="mypass"  \
+--name wildfly dell/wildfly
+```
+
+Test the deplyoment scanner by copying a web application *war* file into the **/app** directory that has been mounted to the wildfly deplyoment scanner directory.
+
+```no-highlight
+wget https://github.com/dell-cloud-marketplace/docker-wildfly/raw/master/helloworld.war  -P /app
+```
+
+View the deployed application at:  
+
+```no-highlight
+http://localhost:8080/helloworld/
 ```
 
 ## Administration
 
 An admin user will be created with a random password. To get the password, check the container logs 
 
-    sudo docker logs wildfly
+```no-highlight
+sudo docker logs wildfly
+```
 
 You will see some output like the following:
 
-    =========================================================================
-    You can now connect to this instance using:
-
-       user name: admin
-       password : eiR6Raetohqu
-
-    =========================================================================
-
-In this case, **eiR6Raetohqu** is the password allocated to the admin user.
-
-Access the Admin interface on port 9990 and use the credentials found in the logs.
 ```no-highlight
- at: http://localhost:9990/
+Modifying 'admin' user with a preset password in WildFly
+=========================================================================
+You can now access the admin interface using:
+
+    user name: admin
+    password : mypass
+
+=========================================================================
 ```
 
-The server is run as the `jboss` user which has the uid/gid set to `1000`.
+In this case, **mypass** is the password that has been specified for the admin user.
 
-WildFly is installed in the `/opt/jboss/wildfly` directory.
+Access the Admin interface on port 9990 and use the credentials found in the logs.
 
+```no-highlight
+at: http://localhost:9990/
+```
 
 ## Application deployment
 
