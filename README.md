@@ -28,14 +28,12 @@ Do
 sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
 ```
 
-## Test your deployment
-
-View the WildFly site at:
+To access the WildFly landing page do:
 
 ```no-highlight
  http://localhost:8080/
 ```
-Or test the response via the Commandline:
+Or test the response via the commandline:
 
 ```no-highlight
 curl http://localhost:8080/
@@ -54,7 +52,7 @@ sudo docker run -d \
 --name wildfly dell/wildfly
 ```
 
-Test the deplyoment scanner by copying a web application *war* file into the **/app** directory that has been mounted to the wildfly deplyoment scanner directory.
+Test the deplyoment scanner by copying a web application *war* file into the **/app** directory that has been mounted to the wildfly deplyoment scanner directory:
 
 ```no-highlight
 wget https://github.com/dell-cloud-marketplace/docker-wildfly/raw/master/helloworld.war  -P /app
