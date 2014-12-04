@@ -10,7 +10,7 @@ RUN usermod -s /bin/bash jboss
 USER jboss
 
 # Set the WILDFLY_VERSION env variable
-ENV WILDFLY_VERSION 8.1.0.Final
+ENV WILDFLY_VERSION 8.2.0.Final
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the
 # extracted tar content.
