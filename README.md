@@ -55,7 +55,7 @@ sudo docker run -d \
 Test the deplyoment scanner by copying a web application *war* file into the **/app** directory that has been mounted to the wildfly deplyoment scanner directory:
 
 ```no-highlight
-wget https://github.com/dell-cloud-marketplace/docker-wildfly/raw/master/helloworld.war  -P /app
+sudo wget https://github.com/dell-cloud-marketplace/docker-wildfly/raw/master/helloworld.war  -P /app
 ```
 
 View the deployed application at:  
