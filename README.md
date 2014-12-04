@@ -20,7 +20,7 @@ To start the container with:
 
 - A named container ("wildfly").
 - Host port 8080 mapped to container port 8080 (WildFly Landing Page)
-- Host port 3306 mapped to container port 3306 (WildFly Administration Page)
+- Host port 9990 mapped to container port 9990 (WildFly Administration Page)
 
 Do
 
