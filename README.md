@@ -22,7 +22,7 @@ To start the container with:
 - Host port 8080 mapped to container port 8080 (WildFly Landing Page)
 - Host port 9990 mapped to container port 9990 (WildFly Administration Page)
 
-Do
+Do:
 
 ```no-highlight
 sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
