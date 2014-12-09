@@ -40,8 +40,11 @@ curl http://localhost:8080/
 ```
 ### Advanced Example
 
+- A named container ("wildfly").
 - To start your image with a data volume for deploying applications to the WildFly Deployment Scanner
-- A predefined password for the WildFly Admin.
+- Host port 8080 mapped to container port 8080 (WildFly Landing Page)
+- Host port 9990 mapped to container port 9990 (WildFly Administration Page)
+- A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 ```no-highlight
 sudo docker run -d \
