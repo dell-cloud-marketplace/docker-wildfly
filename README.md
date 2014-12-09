@@ -66,7 +66,7 @@ http://localhost:8080/helloworld/
 
 ## Administration
 
-An admin user will be created with a random password. To get the password, check the container logs 
+Check the container logs for the administrator credentials:
 
 ```no-highlight
 sudo docker logs wildfly
