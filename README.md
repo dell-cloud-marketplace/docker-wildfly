@@ -61,7 +61,7 @@ Test the deplyoment scanner by copying a web application *war* file into the **/
 
 ```no-highlight
 sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/helloworld.war \
-          -P /app
+-P /app
 ```
 
 View the deployed application at:  
