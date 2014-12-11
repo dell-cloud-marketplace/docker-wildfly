@@ -69,7 +69,13 @@ sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/hellow
 View the deployed application at:  
 
 ```no-highlight
-http://localhost:8443/helloworld/
+https://localhost:8443/helloworld/
+```
+
+Or test the response via the commandline:
+
+```no-highlight
+curl -k https://localhost:8443/helloworld/
 ```
 
 ## Administration
