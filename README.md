@@ -44,16 +44,16 @@ To start the container with:
 
 - A named container ("wildfly").
 - A data volume (which will survive a restart or recreation of the container) for deploying applications using the WildFly Deployment Scanner
-- Host port 8080 mapped to container port 8080 (WildFly Landing Page)
-- Host port 9990 mapped to container port 9990 (WildFly Administration Page)
+- Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
+- Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
 - A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 Do:
 
 ```no-highlight
 sudo docker run -d \
--p 8080:8080 \
--p 9990:9990 \
+-p 8443:8443 \
+-p 9993:9993 \
 -v /app:/opt/jboss/wildfly/standalone/deployments/ \
 -e ADMIN_PASS="mypass"  \
 --name wildfly dell/wildfly
@@ -69,7 +69,7 @@ sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/hellow
 View the deployed application at:  
 
 ```no-highlight
-http://localhost:8080/helloworld/
+http://localhost:8443/helloworld/
 ```
 
 ## Administration
@@ -95,10 +95,10 @@ You can now access the admin interface using:
 
 In this case, **mypass** is the password that has been specified for the admin user.
 
-Access the Admin interface on port 9990 and use the credentials found in the logs.
+Access the Admin interface on port *9993* with SSL or *9990* without and use the credentials found in the logs.
 
 ```no-highlight
-at: http://localhost:9990/
+at: https://localhost:9993/
 ```
 
 ## Application deployment
@@ -110,10 +110,10 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-For example, using the admin credentials from the logs, you can access web deployment console
+For example, using the admin credentials from the logs, you can access web deployment console on port *9993* with SSL or *9990* without:
 
 ```no-highlight
- at: http://localhost:9990/console/App.html#deployments
+ at: https://localhost:9993/console/App.html#deployments
 ```
 
 ### Image Details
