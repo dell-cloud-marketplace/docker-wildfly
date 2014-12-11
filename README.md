@@ -43,9 +43,9 @@ curl http://localhost:8080/
 To start the container with:
 
 - A named container ("wildfly").
-- A data volume (which will survive a restart or recreation of the container) for deploying applications using the WildFly Deployment Scanner
 - Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
 - Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
+- A data volume (which will survive a restart or recreation of the container) for deploying applications using the WildFly Deployment Scanner
 - A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 Do:
