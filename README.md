@@ -40,6 +40,8 @@ curl http://localhost:8080/
 ```
 ### Advanced Example
 
+To start the container with:
+
 - A named container ("wildfly").
 - A data volume (which will survive a restart or recreation of the container) for deploying applications using the WildFly Deployment Scanner
 - Host port 8080 mapped to container port 8080 (WildFly Landing Page)
@@ -51,13 +53,13 @@ Do:
 ```no-highlight
 sudo docker run -d \
 -p 8080:8080 \
- -p 9990:9990 \
+-p 9990:9990 \
 -v /app:/opt/jboss/wildfly/standalone/deployments/ \
 -e ADMIN_PASS="mypass"  \
 --name wildfly dell/wildfly
 ```
 
-Test the deplyoment scanner by copying a web application *war* file into the **/app** directory that has been mounted to the wildfly deplyoment scanner directory:
+Test the deployment scanner by copying a web application *war* file into the **/app** directory on the host that has been mounted to the wildfly deployment scanner directory:
 
 ```no-highlight
 sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/helloworld.war \
@@ -108,7 +110,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-for example, using the admin credentials from the logs, you can access web deployment console
+For example, using the admin credentials from the logs, you can access web deployment console
 
 ```no-highlight
  at: http://localhost:9990/console/App.html#deployments
