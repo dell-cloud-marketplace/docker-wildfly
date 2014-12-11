@@ -14,8 +14,8 @@ ENV WILDFLY_VERSION 8.2.0.Final
 # Add the WildFly distribution to /opt, and make wildfly the owner of the
 # extracted tar content.
 RUN cd $HOME && curl http://download.jboss.org/wildfly/$WILDFLY_VERSION/\
-    wildfly-$WILDFLY_VERSION.tar.gz | tar zx && \
-    mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly
+wildfly-$WILDFLY_VERSION.tar.gz | tar zx && \
+mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly
 
 # Add standalone.xml to enable SSL for console management and web applications
 ADD standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
