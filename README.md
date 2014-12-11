@@ -53,7 +53,7 @@ Do:
 ```no-highlight
 sudo docker run -d \
 -p 8080:8080 \
- -p 9990:9990 \
+-p 9990:9990 \
 -v /app:/opt/jboss/wildfly/standalone/deployments/ \
 -e ADMIN_PASS="mypass"  \
 --name wildfly dell/wildfly
