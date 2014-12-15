@@ -9,7 +9,7 @@ The stack comprises the following components:
 Name       | Version                 | Description
 -----------|-------------------------|------------------------------
 Wildfly    | 8.1                     | Application Server
-JDK        | 7                       | Java
+JDK        | 7                       | Java9
 
 
 ## Usage
@@ -20,12 +20,13 @@ To start the container with:
 
 - A named container ("wildfly").
 - Host port 8080 mapped to container port 8080 (WildFly Landing Page)
-- Host port 9990 mapped to container port 9990 (WildFly Administration Page)
+- Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
+- Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
 
 Do:
 
 ```no-highlight
-sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
+sudo docker run -d  -p 8080:8080 -p 8443:8443 -p 9993:9993 --name wildfly dell/wildfly
 ```
 
 To access the WildFly landing page do:
@@ -55,7 +56,7 @@ sudo docker run -d \
 -p 8443:8443 \
 -p 9993:9993 \
 -v /app:/opt/jboss/wildfly/standalone/deployments/ \
--e ADMIN_PASS="mypass"  \
+-e ADMIN_PASS="mypass" \
 --name wildfly dell/wildfly
 ```
 
@@ -101,7 +102,7 @@ You can now access the admin interface using:
 
 In this case, **mypass** is the password that has been specified for the admin user.
 
-Access the Admin interface on port *9993* with SSL or *9990* without and use the credentials found in the logs.
+Access the Admin interface on port *9993* and use the credentials found in the logs.
 
 ```no-highlight
 at: https://localhost:9993/
@@ -116,7 +117,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-For example, using the admin credentials from the logs, you can access web deployment console on port *9993* with SSL or *9990* without:
+For example, using the admin credentials from the logs, you can access web deployment console on port *9993*:
 
 ```no-highlight
  at: https://localhost:9993/console/App.html#deployments
