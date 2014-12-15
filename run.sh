@@ -1,19 +1,27 @@
 #!/bin/sh
 
-CONFIG_DIR="/opt/jboss/wildfly/standalone/configuration"
+# Various Wildfly folders
+STANDALONE_DIR="/opt/jboss/wildfly/standalone"
+CONFIG_DIR="$STANDALONE_DIR/configuration"
 STANDALONE_XML="$CONFIG_DIR/standalone.xml"
+STANDALONE_DIR_TMP="/tmp/wildfly/standalone"
 
-# Change ownership and permissions of the deployment directory
-DEPLOYMENT_SCANNER_PATH="/opt/jboss/wildfly/standalone/deployments"
-chown -R jboss:jboss $DEPLOYMENT_SCANNER_PATH 
-chmod -R 755 $DEPLOYMENT_SCANNER_PATH
+# If the standalone directory is empty (the user has specified a volume), copy the
+# contents from the folder in tmp (which is created when the image was built).
+if [ ! "$(ls -A $STANDALONE_DIR)" ]; then
+    cp -r $STANDALONE_DIR_TMP/* $STANDALONE_DIR
+fi
+
+# Change ownership and permissions of the standalone directory
+chown -R jboss:jboss $STANDALONE_DIR
+chmod -R 755 $STANDALONE_DIR
 
 # Generate a random password
 PASS=${ADMIN_PASS:-$(pwgen -c -n -1 12)}
 _word=$( [ ${ADMIN_PASS} ] && echo "preset" || echo "random" )
 echo "=> Modifying 'admin' user with a ${_word} password in WildFly"
 
-# Add an admin user.
+# Add an admin user
 su jboss -c "/opt/jboss/wildfly/bin/add-user.sh admin $PASS --silent"
 
 echo "========================================================================="

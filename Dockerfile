@@ -19,6 +19,8 @@ mv $HOME/wildfly-$WILDFLY_VERSION $HOME/wildfly
 
 # Add standalone.xml to enable SSL for console management and web applications
 ADD standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
+RUN mkdir -p /tmp/wildfly/ && \
+    cp -r /opt/jboss/wildfly/standalone /tmp/wildfly/
 
 # Set the JBOSS_HOME env variable
 ENV JBOSS_HOME /opt/jboss/wildfly
@@ -26,10 +28,11 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 # Add our custom script.
 ADD run.sh /run.sh
 
-VOLUME ["/opt/jboss/wildfly/standalone/deployments"]
+# Expose Wildfly standalone directory
+VOLUME ["/opt/jboss/wildfly/standalone"]
 
-# Expose Wildfly ports (HTTP/HTTPS, management console on HTTP and HTTPS)
-EXPOSE 8080 9990 8443 9993
+# Expose Wildfly ports (web applications on HTTP/HTTPS and management console on HTTPS)
+EXPOSE 8080 8443 9993
 
 # Make it the default command to run on boot
 USER root
