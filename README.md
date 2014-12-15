@@ -20,12 +20,13 @@ To start the container with:
 
 - A named container ("wildfly").
 - Host port 8080 mapped to container port 8080 (WildFly Landing Page)
-- Host port 9990 mapped to container port 9990 (WildFly Administration Page)
+- Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
+- Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
 
 Do:
 
 ```no-highlight
-sudo docker run -d  -p 8080:8080 -p 9990:9990 --name wildfly dell/wildfly
+sudo docker run -d  -p 8080:8080 -p 8443:8443 -p 9993:9993 --name wildfly dell/wildfly
 ```
 
 To access the WildFly landing page do:
