@@ -9,7 +9,7 @@ The stack comprises the following components:
 Name       | Version                 | Description
 -----------|-------------------------|------------------------------
 Wildfly    | 8.1                     | Application Server
-JDK        | 7                       | Java
+JDK        | 7                       | Java9
 
 
 ## Usage
@@ -102,7 +102,7 @@ You can now access the admin interface using:
 
 In this case, **mypass** is the password that has been specified for the admin user.
 
-Access the Admin interface on port *9993* with SSL or *9990* without and use the credentials found in the logs.
+Access the Admin interface on port *9993* and use the credentials found in the logs.
 
 ```no-highlight
 at: https://localhost:9993/
@@ -117,7 +117,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-For example, using the admin credentials from the logs, you can access web deployment console on port *9993* with SSL or *9990* without:
+For example, using the admin credentials from the logs, you can access web deployment console on port *9993*:
 
 ```no-highlight
  at: https://localhost:9993/console/App.html#deployments
