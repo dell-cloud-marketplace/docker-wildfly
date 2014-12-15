@@ -44,9 +44,13 @@ curl http://localhost:8080/
 To start the container with:
 
 - A named container ("wildfly").
+- Host port 8080 mapped to container port 8080 (WildFly Landing Page)
 - Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
 - Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
-- A data volume (which will survive a restart or recreation of the container) for deploying applications using the WildFly Deployment Scanner
+- Data volumes (which will survive a restart or recreation of the container):
+  * *Deployment* volume for deploying applications using the WildFly Deployment Scanner.
+  * *Logs* volume for viewing the Wildfly application logs.
+  * *Config* volume for supplying Wildfly configuration files.
 - A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 Do:
@@ -55,7 +59,9 @@ Do:
 sudo docker run -d \
 -p 8443:8443 \
 -p 9993:9993 \
--v /app:/opt/jboss/wildfly/standalone/deployments/ \
+-v /wildfly/configuration:/opt/jboss/wildfly/standalone/configuration \
+-v /wildfly/log:/opt/jboss/wildfly/standalone/log \
+-v /wildfly/deployments:/opt/jboss/wildfly/standalone/deployments \
 -e ADMIN_PASS="mypass" \
 --name wildfly dell/wildfly
 ```
