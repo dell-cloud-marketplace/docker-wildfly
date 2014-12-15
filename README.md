@@ -57,6 +57,7 @@ Do:
 
 ```no-highlight
 sudo docker run -d \
+-p 8080:8080 \
 -p 8443:8443 \
 -p 9993:9993 \
 -v /wildfly/configuration:/opt/jboss/wildfly/standalone/configuration \
