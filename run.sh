@@ -3,13 +3,13 @@
 # Various Wildfly folders
 STANDALONE_DIR="/opt/jboss/wildfly/standalone"
 CONFIG_DIR="$STANDALONE_DIR/configuration"
+CONFIG_DIR_TMP="/tmp/wildfly/configuration"
 STANDALONE_XML="$CONFIG_DIR/standalone.xml"
-STANDALONE_DIR_TMP="/tmp/wildfly/standalone"
 
-# If the standalone directory is empty (the user has specified a volume), copy the
+# If the configuration directory is empty (the user has specified a volume), copy the
 # contents from the folder in tmp (which is created when the image was built).
-if [ ! "$(ls -A $STANDALONE_DIR)" ]; then
-    cp -r $STANDALONE_DIR_TMP/* $STANDALONE_DIR
+if [ ! "$(ls -A $CONFIG_DIR)" ]; then
+    cp -r $CONFIG_DIR_TMP/* $CONFIG_DIR
 fi
 
 # Change ownership and permissions of the standalone directory
