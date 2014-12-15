@@ -56,7 +56,7 @@ sudo docker run -d \
 -p 8443:8443 \
 -p 9993:9993 \
 -v /app:/opt/jboss/wildfly/standalone/deployments/ \
--e ADMIN_PASS="mypass"  \
+-e ADMIN_PASS="mypass" \
 --name wildfly dell/wildfly
 ```
 
