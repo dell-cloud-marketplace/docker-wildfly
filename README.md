@@ -42,7 +42,7 @@ https://localhost:8443
 
 **We strongly recommend that you connect via HTTPS**, for this step, and all subsequent administrative tasks, if the container is running outside your local machine (e.g. in the Cloud). Your browser will warn you that the certificate is not trusted. If you are unclear about how to proceed, please consult your browser's documentation on how to accept the certificate.
 
-Or test the response via the commandline:
+Or test the response via the command-line:
 
 ```no-highlight
 curl http://localhost:8080/
@@ -88,7 +88,7 @@ View the deployed application at:
 https://localhost:8443/helloworld/
 ```
 
-Or test the response via the commandline:
+Or test the response via the command-line:
 
 ```no-highlight
 curl -k https://localhost:8443/helloworld/
