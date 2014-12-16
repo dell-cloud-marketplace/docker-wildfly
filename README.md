@@ -103,7 +103,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 3. You can use the management API directly
 4. You can use the deployment scanner
 
-For example, using the admin credentials from the logs, you can access web deployment console on port *9993*:
+For example, using the admin credentials from the logs, you can access the web deployment console on port *9993*:
 
 ```no-highlight
  at: https://localhost:9993/console/App.html#deployments
