@@ -18,10 +18,10 @@ JDK        | 7                       | Java9
 
 To start the container with:
 
-- A named container ("wildfly").
-- Host port 8080 mapped to container port 8080 (WildFly Landing Page)
-- Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
-- Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
+- A named container (**wildfly**).
+- Host port 8080 mapped to container port 8080 (WildFly HTTP Port)
+- Host port 8443 mapped to container port 8443 (WildFly HTTPS Port)
+- Host port 9993 mapped to container port 9993 (WildFly HTTPS Administration Port)
 
 Do:
 
@@ -51,7 +51,7 @@ curl http://localhost:8080/
 
 To start the container with:
 
-- A named container ("wildfly").
+- A named container (**wildfly**).
 - Host port 8080 mapped to container port 8080 (WildFly HTTP Port)
 - Host port 8443 mapped to container port 8443 (WildFly HTTPS Port)
 - Host port 9993 mapped to container port 9993 (WildFly HTTPS Administration Port)
