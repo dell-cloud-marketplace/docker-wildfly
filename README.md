@@ -56,9 +56,9 @@ To start the container with:
 - Host port 8443 mapped to container port 8443 (**SSL** WildFly Landing Page)
 - Host port 9993 mapped to container port 9993 (**SSL** WildFly Administration Page)
 - Data volumes (which will survive a restart or recreation of the container):
-  * *Deployment* volume for deploying applications using the WildFly Deployment Scanner.
-  * *Logs* volume for viewing the Wildfly application logs.
-  * *Configuration* volume for supplying Wildfly configuration files.
+  * The *Deployment* volume for deploying applications using the WildFly Deployment Scanner is available in **/wildfly/deployments** on the host.
+  * The *Logs* volume for viewing the Wildfly application logs is available in **/wildfly/log** on the host.
+  * The *Configuration* volume for supplying Wildfly configuration files is available in **/wildfly/configuration** on the host.
 - A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 Do:
