@@ -139,6 +139,6 @@ at: https://localhost:9993/
 
 ### Image Details
 
-Inspired by  [jboss/base](https://github.com/JBoss-Dockerfiles/wildfly)
+Inspired by [jboss/wildfly](https://github.com/JBoss-Dockerfiles/wildfly)
 
 Pre-built Image   | [https://registry.hub.docker.com/u/dell/wildfly](https://registry.hub.docker.com/u/dell/wildfly)
