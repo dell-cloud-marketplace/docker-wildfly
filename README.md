@@ -1,7 +1,7 @@
 #docker-wildfly
 
 This image installs [Wildfly](http://wildfly.org/) an application server authored by JBoss.
-This image extends the [`jboss/base-jdk:7`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk7) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the README.md for selected images for more info.
+This image extends the [`jboss/base-jdk:7`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk7) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the README.md for selected images for more information.
 
 ## Components
 The stack comprises the following components:
@@ -34,6 +34,14 @@ To access the WildFly landing page do:
 ```no-highlight
  http://localhost:8080/
 ```
+
+Or:
+```no-highlight
+https://localhost:8443
+```
+
+**We strongly recommend that you connect via HTTPS**, for this step, and all subsequent administrative tasks, if the container is running outside your local machine (e.g. in the Cloud). Your browser will warn you that the certificate is not trusted. If you are unclear about how to proceed, please consult your browser's documentation on how to accept the certificate.
+
 Or test the response via the commandline:
 
 ```no-highlight
@@ -50,7 +58,7 @@ To start the container with:
 - Data volumes (which will survive a restart or recreation of the container):
   * *Deployment* volume for deploying applications using the WildFly Deployment Scanner.
   * *Logs* volume for viewing the Wildfly application logs.
-  * *Config* volume for supplying Wildfly configuration files.
+  * *Configuration* volume for supplying Wildfly configuration files.
 - A specific password for WildFly user **admin**.  A preset password can be defined instead of a randomly generated one, this is done by setting the environment variable `ADMIN_PASS` to your specific password when running the container.
 
 Do:
@@ -86,6 +94,20 @@ Or test the response via the commandline:
 curl -k https://localhost:8443/helloworld/
 ```
 
+## Application deployment
+
+With the WildFly server you can [deploy your application in multiple ways](https://docs.jboss.org/author/display/WFLY8/Application+deployment):
+
+1. You can use CLI
+2. You can use the web console
+3. You can use the management API directly
+4. You can use the deployment scanner
+
+For example, using the admin credentials from the logs, you can access web deployment console on port *9993*:
+
+```no-highlight
+ at: https://localhost:9993/console/App.html#deployments
+```
 ## Administration
 
 Check the container logs for the administrator credentials:
@@ -109,29 +131,14 @@ You can now access the admin interface using:
 
 In this case, **mypass** is the password that has been specified for the admin user.
 
-Access the Admin interface on port *9993* and use the credentials found in the logs.
+Access the Administration interface on port *9993* and use the credentials found in the logs.
 
 ```no-highlight
 at: https://localhost:9993/
 ```
 
-## Application deployment
-
-With the WildFly server you can [deploy your application in multiple ways](https://docs.jboss.org/author/display/WFLY8/Application+deployment):
-
-1. You can use CLI
-2. You can use the web console
-3. You can use the management API directly
-4. You can use the deployment scanner
-
-For example, using the admin credentials from the logs, you can access web deployment console on port *9993*:
-
-```no-highlight
- at: https://localhost:9993/console/App.html#deployments
-```
-
 ### Image Details
 
-Based on  [jboss/base](https://github.com/JBoss-Dockerfiles/wildfly)
+Inspired by  [jboss/base](https://github.com/JBoss-Dockerfiles/wildfly)
 
 Pre-built Image   | [https://registry.hub.docker.com/u/dell/wildfly](https://registry.hub.docker.com/u/dell/wildfly)
