@@ -75,7 +75,7 @@ sudo docker run -d \
 --name wildfly dell/wildfly
 ```
 
-Test the deployment scanner by copying a web application *war* file into the **/app** directory on the host that has been mounted to the wildfly deployment scanner directory:
+Test the deployment scanner by copying a web application *war* file into the **/wildfly/deployment** directory on the host that has been mounted to the wildfly deployment scanner directory:
 
 ```no-highlight
 sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/helloworld.war \
