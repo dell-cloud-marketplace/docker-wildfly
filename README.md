@@ -6,10 +6,10 @@ This image extends the [`jboss/base-jdk:7`](https://github.com/JBoss-Dockerfiles
 ## Components
 The stack comprises the following components:
 
-Name       | Version                 | Description
------------|-------------------------|------------------------------
-Wildfly    | 8.1                     | Application Server
-JDK        | 7                       | Java9
+Name       | Version    | Description
+-----------|------------|--------------
+Wildfly    | 8.1        | Application Server
+JDK        | 7          | Java9
 
 
 ## Usage
@@ -30,12 +30,12 @@ sudo docker run -d  -p 8080:8080 -p 8443:8443 -p 9993:9993 --name wildfly dell/w
 To access the WildFly landing page do:
 
 ```no-highlight
- http://localhost:8080/
+ http://<ip address>:8080/
 ```
 
 Or:
 ```no-highlight
-https://localhost:8443
+https://<ip address>:8443
 ```
 
 **We strongly recommend that you connect via HTTPS**, for this step, and all subsequent administrative tasks, if the container is running outside your local machine (e.g. in the Cloud). Your browser will warn you that the certificate is not trusted. If you are unclear about how to proceed, please consult your browser's documentation on how to accept the certificate.
@@ -43,7 +43,7 @@ https://localhost:8443
 Or test the response via the command-line:
 
 ```no-highlight
-curl http://localhost:8080/
+curl http://<ip address>:8080/
 ```
 ### Advanced Example
 
@@ -61,14 +61,14 @@ Do:
 
 ```no-highlight
 sudo docker run -d \
--p 8080:8080 \
--p 8443:8443 \
--p 9993:9993 \
--v /wildfly/configuration:/opt/jboss/wildfly/standalone/configuration \
--v /wildfly/log:/opt/jboss/wildfly/standalone/log \
--v /wildfly/deployments:/opt/jboss/wildfly/standalone/deployments \
--e ADMIN_PASS="mypass" \
---name wildfly dell/wildfly
+    -p 8080:8080 \
+    -p 8443:8443 \
+    -p 9993:9993 \
+    -v /wildfly/configuration:/opt/jboss/wildfly/standalone/configuration \
+    -v /wildfly/log:/opt/jboss/wildfly/standalone/log \
+    -v /wildfly/deployments:/opt/jboss/wildfly/standalone/deployments \
+    -e ADMIN_PASS="mypass" \
+    --name wildfly dell/wildfly
 ```
 
 Test the deployment scanner by copying a web application *war* file into the **/wildfly/deployment** directory on the host that has been mounted to the wildfly deployment scanner directory:
@@ -81,13 +81,13 @@ sudo wget https://github.com/davtrott/HelloWorldJsp/raw/master/helloWorld/hellow
 View the deployed application at:  
 
 ```no-highlight
-https://localhost:8443/helloworld/
+https://<ip address>:8443/helloworld/
 ```
 
 Or test the response via the command-line:
 
 ```no-highlight
-curl -k https://localhost:8443/helloworld/
+curl -k https://<ip address>:8443/helloworld/
 ```
 
 ## Application deployment
@@ -102,7 +102,7 @@ With the WildFly server you can [deploy your application in multiple ways](https
 For example, using the admin credentials from the logs, you can access the web deployment console on port *9993*:
 
 ```no-highlight
- at: https://localhost:9993/console/App.html#deployments
+ at: https://<ip address>:9993/console/App.html#deployments
 ```
 ## Administration
 
@@ -130,7 +130,7 @@ In this case, **mypass** is the password that has been specified for the admin u
 Access the Administration interface on port *9993* and use the credentials found in the logs.
 
 ```no-highlight
-at: https://localhost:9993/
+at: https://<ip address>:9993/
 ```
 
 ### Image Details
