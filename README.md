@@ -9,7 +9,7 @@ The stack comprises the following components:
 Name       | Version    | Description
 -----------|------------|--------------
 Wildfly    | 8.1        | Application Server
-JDK        | 7          | Java9
+JDK        | 7          | Java
 
 
 ## Usage
