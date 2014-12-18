@@ -19,9 +19,7 @@ JDK        | 7                       | Java9
 To start the container with:
 
 - A named container (**wildfly**).
-- Host port 8080 mapped to container port 8080 (WildFly HTTP Port)
-- Host port 8443 mapped to container port 8443 (WildFly HTTPS Port)
-- Host port 9993 mapped to container port 9993 (WildFly HTTPS Administration Port)
+- Ports 8080, 8443 and 9993 exposed (respectively Wildfly HTTP, HTTPS and HTTPS Administration console ports)
 
 Do:
 
@@ -52,9 +50,7 @@ curl http://localhost:8080/
 To start the container with:
 
 - A named container (**wildfly**).
-- Host port 8080 mapped to container port 8080 (WildFly HTTP Port)
-- Host port 8443 mapped to container port 8443 (WildFly HTTPS Port)
-- Host port 9993 mapped to container port 9993 (WildFly HTTPS Administration Port)
+- Ports 8080, 8443 and 9993 exposed (respectively Wildfly HTTP, HTTPS and HTTPS Administration console ports)
 - Data volumes (which will survive a restart or recreation of the container):
   * The *Deployment* volume for deploying applications using the WildFly Deployment Scanner is available in **/wildfly/deployments** on the host.
   * The *Logs* volume for viewing the Wildfly application logs is available in **/wildfly/log** on the host.
