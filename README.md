@@ -103,7 +103,7 @@ Login as user **admin**, and the password you specified or read from the logs.
 You may deploy a Wildfly application in [multiple ways](https://docs.jboss.org/author/display/WFLY8/Application+deployment):
 
 1. Via the CLI
-2. Via the administrator web console (https://localost:9993/App.html#deployments)
+2. Via the administrator web console (https://localost:9993/console/App.html#deployments)
 3. Via the management API
 4. Via the deployment scanner
 
