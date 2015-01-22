@@ -110,7 +110,8 @@ You may deploy a Wildfly application in [multiple ways](https://docs.jboss.org/a
 For example, if you created the container with volume support, copy a *WAR* file into the **/wildfly/deployment** directory (which is monitored by the deployment scanner):
 
 ```no-highlight
-sudo wget https://github.com/dell-cloud-marketplace/docker-wildfly/blob/master/helloworld.war \
+sudo wget \
+https://github.com/dell-cloud-marketplace/docker-wildfly/blob/master/helloworld.war \
 -P /wildfly/deployments/
 ```
 
