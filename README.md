@@ -99,7 +99,7 @@ https://localhost:9993
 
 Login as user **admin**, and the password you specified or read from the logs.
 
-## Application deployment
+## Application Deployment
 You may deploy a Wildfly application in [multiple ways](https://docs.jboss.org/author/display/WFLY8/Application+deployment):
 
 1. Via the CLI
