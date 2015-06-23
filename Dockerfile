@@ -25,8 +25,9 @@ ADD standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
 RUN mkdir -p /tmp/wildfly/ && \
     cp -r /opt/jboss/wildfly/standalone/configuration /tmp/wildfly/
 
-# Set the JBOSS_HOME env variable
+# Environmental variables.
 ENV JBOSS_HOME /opt/jboss/wildfly
+ENV ADMIN_PASS ""
 
 # Add our custom script.
 ADD run.sh /run.sh
