@@ -121,6 +121,14 @@ View the deployed application at:
 https://localhost:8443/helloworld/
 ```
 
+## Reference
+
+### Environmental Variables
+
+Variable   | Default  | Description
+-----------|----------|------------------------------------
+ADMIN_PASS | *random* | Password for Wildfly user **admin**
+
 ### Image Details
 
 Inspired by [jboss/wildfly](https://github.com/JBoss-Dockerfiles/wildfly)
